@@ -1,0 +1,123 @@
+{
+	comment: 'JAPE Syntax: version 1.0 by Thomas Efer'
+	file_types: [ 'jape'	]
+	key_equivalent: 'Ctrl+Alt+Shift+J'
+	title: 'JAPE'
+	patterns: [
+		{
+			begin: /\/\*/
+			end: /\*\//
+			name: 'comment.block'
+		}
+		{
+			match: /\/\/.*$/
+			name: 'comment.line.double-slash'
+		}
+		{
+			match: /(?<=\~)\s*"[^"]*"/
+			name: 'string.regexp'
+		}
+		{
+			begin: /"/
+			end: /"/
+			name: 'string.quoted.double'
+		}
+		{
+			match: /:\w[^.\s=()]*\b/
+			name: 'variable.other'
+		}
+		{
+			match: /\b(Phase|Input|Options|Macro|Rule|Priority)(?=:)/
+			name: 'keyword.control'
+		}
+		{
+			match: /(?<={)\s*\w+\s*(?=})/
+			name: 'support.constant'
+		}
+		{
+			match: /(?<=Phase:)\s+\S+/
+			name: 'support.constant'
+		}
+		{
+			match: /(?<=Input:).*(?!=\/\/)/
+			name: 'support.class'
+		}
+		{
+			match: /(?<=Options:).*(?!=\/\/)/
+			name: 'support.other'
+		}
+		{
+			match: /(?<=Macro:)\s+\S+/
+			name: 'entity.name.type'
+		}
+		{
+			match: /(?<![.])(\d+[.]?\d*)/
+			name: 'constant.numeric'
+		}
+		{
+			match: /\b(AnnotationSet|Annotation|FeatureMap|Factory|Document|Ontology)\b/
+			name: 'support.class'
+		}
+		{
+			match: /\b(doc|bindings|annotations|inputAS|outputAS|ontology)\b/
+			name: 'support.variable'
+		}
+		{
+			match: /\b(contains|within)\b/
+			name: 'keyword.operator'
+		}
+		{
+			match: /\b(return|break|case|continue|default|do|while|for|switch|if|else|instanceof|true|false|null|new|this|super|throw)\b/
+			name: 'keyword.operator.java'
+		}
+		{
+			match: /\b(void|byte|short|char|int|long|float|double|boolean)\b/
+			name: 'storage.type.java'
+		}
+		{
+			match: /\b(public|private|protected|static|final|native|synchronized|abstract|threadsafe|transient)\b/
+			name: 'storage.modifier.java'
+		}
+		{
+			match: /(?<=Rule:)\s+\S+/
+			name: 'entity.name.function'
+		}
+		{
+			match: /((?<!\+)(\+)(?!\+))|((?<!\*)(\*)(?!\*))|((?<!\?)(\?)(?!\?))|((?<!=)(>=|<=|!=|=\~|==\~|!\~|!=\~|==|=)(?!=))|((?<![|])([|])(?![|]))/
+			name: 'keyword.operator'
+		}
+		{
+			match: /\b[^.\s=()]+(?=[.()]\w)/
+			name: 'support.class'
+		}
+		{
+			match: /(?<!=[.])\w+(?!=[.])/
+			name: 'variable.parameter'
+		}
+		{
+			match: /(?<![.])\b\w+\s*(?==)(?!==)/
+			name: 'variable.parameter'
+		}		
+		{
+			match: /[(){}\[\],.;:]/
+			name: 'keyword.operator'
+		}
+		{
+			match: /(&&|<|>|\+|-)/
+			name: 'keyword.operator'
+		}
+		{
+			match: /-->/
+			name: 'keyword.operator'
+		}
+		{
+			match: /(?<==)\s*\w+(?![.\w])/
+			name: 'string.unquoted'
+		}
+		{
+			match: /(?<=\~)\s*\w+(?![.\w])/
+			name: 'string.unquoted'
+		}
+	]
+	scope_name: 'source.jape'
+}
